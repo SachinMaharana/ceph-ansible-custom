@@ -9,7 +9,7 @@ above for the name of the branch. For example: http://docs.ceph.com/ceph-ansible
 
 # Documentation
 
-Please refer the following repo to create a VM's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
+Please refer the following repo to create VM's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
 
 ```
 https://github.com/SachinMaharana/ceph-cluster-vms
