@@ -11,9 +11,7 @@ above for the name of the branch. For example: http://docs.ceph.com/ceph-ansible
 
 Please refer the following repo to create VM's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
 
-```
 https://github.com/SachinMaharana/ceph-cluster-vms
-```
 
 The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for client. A gp2 disk of size 30GB volume is attacthed to osds.
 
