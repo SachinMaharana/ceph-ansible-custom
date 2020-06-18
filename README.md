@@ -15,6 +15,8 @@ Please refer the following repo to create a VM's for ceph-cluster creation in AW
 https://github.com/SachinMaharana/ceph-cluster-vms
 ```
 
+The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for client. A gp2 disk of size 30GB volume is attacthed to osds.
+
 ## Get the instance information from the following commands
 
 `` aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress,PublicDnsName,BlockDeviceMappings[*].DeviceName]' --output text | column -t | grep running ``
@@ -33,7 +35,7 @@ ceph -s
 
 ## Use Block Device
 
-To add a clients, add a client host group in hosts file. And executing the following to start client playbook
+To add a client node, add a client host group in hosts file. And execute the following to start client playbook(optional. already added in terraform file.)
 
 `ansible-playbook site.yml -i hosts --limit clients`
 
@@ -77,7 +79,7 @@ tmpfs tmpfs 379M 0 379M 0% /run/user/1000
 
 ## Use As Filesystem
 
-To add a mds, add a mds host group in hosts file. And executing the following to start mds playbook
+To add a mds, add a mds host group in hosts file. And execute the following to start mds playbook
 
 `ansible-playbook site.yml -i hosts --limit mdss`
 
@@ -115,7 +117,7 @@ cephfs - 0 clients
 MDS version: ceph version 14.2.9 (581f22da52345dba46ee232b73b990f06029a2a0) nautilus (stable)
 ```
 
-### Get admin key from mds to client.
+### Get admin key in MDS node.
 
 `ceph-authtool -p /etc/ceph/ceph.client.admin.keyring > admin.key`
 
