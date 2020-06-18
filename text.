@@ -1,0 +1,18 @@
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --key-name kubernetes --associate-public-ip-address
+
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 took 4s 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --key-name kubernetes --associate-public-ip-address 
+
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 took 4s 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --key-name kubernetes --associate-public-ip-address 
+
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 took 4s 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --block-device-mappings file://$(pwd)/fedora-ebs-config.json --key-name kubernetes --associate-public-ip-address                                            
+
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 took 21s 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --block-device-mappings file://$(pwd)/fedora-ebs-config.json --key-name kubernetes --associate-public-ip-address
+
+aws-terraform-final on  master [!?] via 💠 default on ☁️  us-east-2 took 10s 
+❯ aws ec2 run-instances --image-id ami-0f2b4fc905b0bd1f1 --instance-type t2.medium --block-device-mappings file://$(pwd)/fedora-ebs-config.json --key-name kubernetes --associate-public-ip-address
+
