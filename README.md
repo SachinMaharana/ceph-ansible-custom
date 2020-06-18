@@ -31,6 +31,12 @@ rgws.custom.yml
 
 `` aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress,PublicDnsName,BlockDeviceMappings[*].DeviceName]' --output text | column -t | grep running ``
 
+## Install Ceph
+
+```
+ansible-playbook site.yml -i hosts
+```
+
 ## SSH in one of the mons and get ceph cluster details
 
 ```
