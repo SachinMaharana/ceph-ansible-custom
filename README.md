@@ -20,6 +20,7 @@ The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for
 ## Refer following files for changes made.
 
 ```
+hosts
 all.custom.yaml
 clients.custom.yaml
 osds.custom.yml
@@ -153,4 +154,11 @@ In above command, replace 172.31.30.12 with Private IP of MDS Node.
 ```
 df -hT
 172.31.30.12:6789:/ ceph 28G 0 28G 0% /mnt
+```
+
+## Remove Ceph
+
+```
+ansible-playbook -vv -i hosts infrastructure-playbooks/purge-cluster.yml
+
 ```
