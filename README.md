@@ -17,6 +17,15 @@ https://github.com/SachinMaharana/ceph-cluster-vms
 
 The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for client. A gp2 disk of size 30GB volume is attacthed to osds.
 
+## Refer following files for changes made.
+
+```
+all.custom.yaml
+clients.custom.yaml
+osds.custom.yml
+rgws.custom.yml
+```
+
 ## Get the instance information from the following commands
 
 `` aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],State.Name,PrivateIpAddress,PublicIpAddress,PublicDnsName,BlockDeviceMappings[*].DeviceName]' --output text | column -t | grep running ``
