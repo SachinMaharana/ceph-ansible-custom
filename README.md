@@ -139,6 +139,8 @@ chmod 600 admin.key
 mount -t ceph 172.31.30.12:6789:/ /mnt -o name=admin,secretfile=admin.key
 ```
 
+Replace 172.31.30.12 with Private IP of MDS Node.
+
 ```
 df -hT
 172.31.30.12:6789:/ ceph 28G 0 28G 0% /mnt
