@@ -166,3 +166,7 @@ df -hT
 ansible-playbook -vv -i hosts infrastructure-playbooks/purge-cluster.yml
 
 ```
+
+Additional Notes is Notes.md
+
+https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/Notes.md
