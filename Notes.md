@@ -51,7 +51,7 @@ object01
 ## Data Flow
 
 ```
-echo "Ceph!" > /tmp/hello/ceph
+echo "ceph" > /tmp/hello
 
 ceph osd pool create node 64 64
 pool 'node' created
@@ -98,3 +98,5 @@ df -h | grep ceph-2
 
 
 ```
+
+# Storage Provisioning with Ceph
