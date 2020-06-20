@@ -33,7 +33,7 @@ ip_version: ipv4
 
 journal_size: 5120 # OSD journal size in MB
 cluster_network: 172.31.16.0/20
-
+# public_network: x.x.x.x
 osd_auto_discovery_exclude: "dm-*|loop*|md*|rbd*"
 
 mds_max_mds: 1

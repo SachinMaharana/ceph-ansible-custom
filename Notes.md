@@ -100,3 +100,10 @@ df -h | grep ceph-2
 ```
 
 # Storage Provisioning with Ceph
+
+Ceph provides us with multiple abstractions to access data stored in various forms. We can store data within a block device attached to our machine, on a locally mounted filesystem, or remotely accessible object storage using those abstractions
+
+Ceph clients can be categorized under three distinct interfaces
+RBD
+CephFS
+RGW
