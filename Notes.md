@@ -107,3 +107,68 @@ Ceph clients can be categorized under three distinct interfaces
 RBD
 CephFS
 RGW
+
+## Creating and Provisioning RADOS Block Devices
+
+```
+ceph tell mon.\* injectargs '--mon-allow-pool-delete=true'
+
+ceph osd pool rm node node --yes-i-really-really-mean-it
+
+ceph osd pool create rbd 64
+
+https://ceph.io/pgcalc/
+
+rbd create ceph-client1-rbd1 --size 10240
+
+rbd ls
+
+rbd info ceph-client1-rbd1
+
+rbd -p rbd info ceph-client1-rbd1
+
+To use the volume we will need to map it to a kernel block device on our client
+operating system
+
+Once mapped the device should show up as /dev/rbd0 on the client
+node.
+
+Mapping the RBD image to a virtual disk using the RBD kernel driver requires a
+Linux kernel of at least version 2.6.32
+
+we will first need to load the rbd kernel module.
+
+modprobe rbd
+lsmod | grep rbd
+
+The next step is to map the image to a kernel device on our client node that we can treat just
+like a local disk or other block device
+
+rbd map ceph-client1-rbd1
+
+This command might fail if the kernel you are using does not provide support for
+certain image features (or attributes) that newer librbd images might possess
+
+
+rbd info ceph-client1-rbd1
+
+rbd feature disable ceph-client1-rbd1 exclusive-lock,object-map
+
+rbd map ceph-client1-rbd1
+
+rbd showmapped
+
+
+fdisk -l /dev/rbd0
+
+mkfs.xfs /dev/rbd0
+
+mkdir /mnt/ceph-vol01
+
+ mount /dev/rbd0 /mnt/ceph-vol1
+
+echo "it works" > /mnt/ceph-vol1/rbd.txt
+
+cat /mnt/ceph-vol1/rbd.txt
+
+```
