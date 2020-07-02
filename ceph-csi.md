@@ -43,7 +43,8 @@ ceph auth get-or-create client.logsuser
 `kubectl create -f ceph-csi/5-csi-rbdplugin-provisioner.yaml`
 
 `kubectl create -f ceph-csi/6-csi-rbdplugin.yaml`
-`---`
+
+---
 
 # testing
 
