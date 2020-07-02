@@ -247,7 +247,7 @@ ceph_stable_release: nautilus
 #fsid: "{{ cluster_uuid.stdout }}"
 generate_fsid: true
 
-#ceph_conf_key_directory: /etc/ceph
+# ceph_conf_key_directory: /etc/ceph
 
 #ceph_uid: 167
 
@@ -304,7 +304,7 @@ rbd_client_admin_socket_path: /var/run/ceph # must be writable by QEMU and allow
 # These variables must be defined at least in all.yml and overrided if needed (inventory host file or group_vars/*.yml).
 # Eg. If you want to specify for each monitor which address the monitor will bind to you can set it in your **inventory host file** by using 'monitor_address' variable.
 # Preference will go to monitor_address if both monitor_address and monitor_interface are defined.
-monitor_interface: eth0
+# monitor_interface: eth0
 #monitor_address: x.x.x.x
 #monitor_address_block: subnet
 # set to either ipv4 or ipv6, whichever your network is using
@@ -367,7 +367,7 @@ ip_version: ipv4
 #hci_safety_factor: 0.2
 #non_hci_safety_factor: 0.7
 #osd_memory_target: 4294967296
-journal_size: 5120 # OSD journal size in MB
+journal_size: 10240
 #block_db_size: -1 # block db size in bytes for the ceph-volume lvm batch. -1 means use the default of 'as big as possible'.
 public_network: 172.31.16.0/20
 cluster_network: 172.31.16.0/20
@@ -377,7 +377,7 @@ cluster_network: 172.31.16.0/20
 #osd_objectstore: bluestore
 
 # Any device containing these patterns in their path will be excluded.
-osd_auto_discovery_exclude: "dm-*|loop*|md*|rbd*"
+# osd_auto_discovery_exclude: "dm-*|loop*|md*|rbd*"
 
 # xattrs. by default, 'filestore xattr use omap' is set to 'true' if
 # 'osd_mkfs_type' is set to 'ext4'; otherwise it isn't set. This can
@@ -388,7 +388,7 @@ osd_auto_discovery_exclude: "dm-*|loop*|md*|rbd*"
 
 ## MDS options
 #
-mds_max_mds: 1
+# mds_max_mds: 1
 
 ## Rados Gateway options
 #
@@ -546,8 +546,9 @@ mds_max_mds: 1
 ceph_conf_overrides:
   global:
     osd_pool_default_pg_num: 8
-    osd_pool_default_size: 3
+    osd_pool_default_size: 2
     osd_pool_default_min_size: 0
+    mon_max_pg_per_osd: 400
 
 #############
 # OS TUNING #
@@ -580,7 +581,7 @@ ceph_conf_overrides:
 #ceph_client_docker_registry: "{{ ceph_docker_registry }}"
 #ceph_docker_enable_centos_extra_repo: false
 #ceph_docker_on_openstack: false
-containerized_deployment: False
+# containerized_deployment: False
 #container_binary:
 timeout_command: "{{ 'timeout --foreground -s KILL ' ~ docker_pull_timeout if (docker_pull_timeout != '0') and (ceph_docker_dev_image is undefined or not ceph_docker_dev_image) else '' }}"
 

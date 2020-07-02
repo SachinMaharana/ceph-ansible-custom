@@ -2,18 +2,18 @@
 # Defines deployment design and assigns role to server groups
 
 - hosts:
-  - mons
-  - osds
-  - mdss
-  - rgws
-  - nfss
-  - rbdmirrors
-  - clients
-  - mgrs
-  - iscsigws
-  - iscsi-gws # for backward compatibility only!
-  - grafana-server
-  - rgwloadbalancers
+    - mons
+    - osds
+    - mdss
+    - rgws
+    - nfss
+    - rbdmirrors
+    - clients
+    - mgrs
+    - iscsigws
+    - iscsi-gws # for backward compatibility only!
+    - grafana-server
+    - rgwloadbalancers
 
   gather_facts: false
   any_errors_fatal: true
@@ -71,16 +71,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-mon
     - import_role:
@@ -112,16 +112,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-mgr
 
@@ -150,16 +150,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-osd
 
@@ -188,16 +188,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-mds
 
@@ -226,16 +226,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-rgw
 
@@ -264,16 +264,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-client
 
@@ -302,16 +302,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-nfs
 
@@ -340,16 +340,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-rbd-mirror
 
@@ -380,16 +380,16 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-handler
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-config
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-iscsi-gw
 
@@ -419,10 +419,10 @@
   tasks:
     - import_role:
         name: ceph-defaults
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-facts
-      tags: ['ceph_update_config']
+      tags: ["ceph_update_config"]
     - import_role:
         name: ceph-rgw-loadbalancer
 

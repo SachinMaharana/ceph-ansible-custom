@@ -33,7 +33,7 @@ ip_version: ipv4
 
 journal_size: 5120 # OSD journal size in MB
 cluster_network: 172.31.16.0/20
-# public_network: x.x.x.x
+public_network: 172.31.16.0/20
 osd_auto_discovery_exclude: "dm-*|loop*|md*|rbd*"
 
 mds_max_mds: 1
@@ -45,6 +45,7 @@ ceph_conf_overrides:
     osd_pool_default_pg_num: 8
     osd_pool_default_size: 3
     osd_pool_default_min_size: 0
+    mon_
 
 containerized_deployment: False
 timeout_command: "{{ 'timeout --foreground -s KILL ' ~ docker_pull_timeout if (docker_pull_timeout != '0') and (ceph_docker_dev_image is undefined or not ceph_docker_dev_image) else '' }}"

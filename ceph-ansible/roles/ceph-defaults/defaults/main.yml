@@ -99,7 +99,6 @@ upgrade_ceph_packages: False
 
 ceph_use_distro_backports: false # DEBIAN ONLY
 
-
 ###########
 # INSTALL #
 ###########
@@ -118,7 +117,6 @@ valid_ceph_origins:
   - distro
   - local
 
-
 ceph_repository: dummy
 valid_ceph_repository:
   - community
@@ -127,7 +125,6 @@ valid_ceph_repository:
   - uca
   - custom
   - obs
-
 
 # REPOSITORY: COMMUNITY VERSION
 #
@@ -142,7 +139,6 @@ nfs_ganesha_stable: true # use stable repos for nfs-ganesha
 nfs_ganesha_stable_branch: V2.8-stable
 nfs_ganesha_stable_deb_repo: "{{ ceph_mirror }}/nfs-ganesha/deb-{{ nfs_ganesha_stable_branch }}/{{ ceph_stable_release }}"
 
-
 # Use the option below to specify your applicable package tree, eg. when using non-LTS Ubuntu versions
 # # for a list of available Debian distributions, visit http://download.ceph.com/debian-{{ ceph_stable_release }}/dists/
 # for more info read: https://github.com/ceph/ceph-ansible/issues/305
@@ -151,7 +147,6 @@ nfs_ganesha_stable_deb_repo: "{{ ceph_mirror }}/nfs-ganesha/deb-{{ nfs_ganesha_s
 # This option is needed for _both_ stable and dev version, so please always fill the right version
 # # for supported distros, see http://download.ceph.com/rpm-{{ ceph_stable_release }}/
 ceph_stable_redhat_distro: el7
-
 
 # REPOSITORY: RHCS VERSION RED HAT STORAGE (from 4.0)
 #
@@ -166,7 +161,6 @@ valid_ceph_repository_type:
 ceph_rhcs_iso_path: "{{ ceph_stable_rh_storage_iso_path | default('') }}"
 ceph_rhcs_mount_path: "{{ ceph_stable_rh_storage_mount_path | default('/tmp/rh-storage-mount') }}"
 ceph_rhcs_repository_path: "{{ ceph_stable_rh_storage_repository_path | default('/tmp/rh-storage-repo') }}" # where to copy iso's content
-
 
 # REPOSITORY: UBUNTU CLOUD ARCHIVE
 #
@@ -205,7 +199,6 @@ nfs_ganesha_flavor: "ceph_master"
 
 ceph_iscsi_config_dev: true # special repo for deploying iSCSI gateways
 
-
 # REPOSITORY: CUSTOM
 #
 # Enabled when ceph_repository == 'custom'
@@ -215,7 +208,6 @@ ceph_iscsi_config_dev: true # special repo for deploying iSCSI gateways
 # ceph_custom_repo should be the URL to the repo base.
 #
 ceph_custom_repo: https://server.domain.com/ceph-custom-repo
-
 
 # ORIGIN: LOCAL CEPH INSTALLATION
 #
@@ -230,7 +222,6 @@ ceph_custom_repo: https://server.domain.com/ceph-custom-repo
 #use_installer: false
 # Root directory for ceph-ansible
 #ansible_dir: "/path/to/ceph-ansible"
-
 
 ######################
 # CEPH CONFIGURATION #
@@ -251,7 +242,7 @@ generate_fsid: true
 ceph_conf_key_directory: /etc/ceph
 
 # Permissions for keyring files in /etc/ceph
-ceph_keyring_permissions: '0600'
+ceph_keyring_permissions: "0600"
 
 cephx: true
 
@@ -312,9 +303,9 @@ mon_use_fqdn: false # if set to true, the MON name used will be the fqdn in the 
 
 mon_host_v1:
   enabled: True
-  suffix: ':6789'
+  suffix: ":6789"
 mon_host_v2:
-  suffix: ':3300'
+  suffix: ":3300"
 
 ##########
 # CEPHFS #
@@ -408,7 +399,6 @@ radosgw_frontend_ssl_certificate: ""
 radosgw_frontend_options: "{{ radosgw_civetweb_options if radosgw_frontend_type == 'civetweb' else '' }}"
 radosgw_thread_pool_size: 512
 
-
 # You must define either radosgw_interface, radosgw_address.
 # These variables must be defined at least in all.yml and overrided if needed (inventory host file or group_vars/*.yml).
 # Eg. If you want to specify for each radosgw node which address the radosgw will bind to you can set it in your **inventory host file** by using 'radosgw_address' variable.
@@ -420,7 +410,6 @@ radosgw_keystone_ssl: false # activate this when using keystone PKI keys
 radosgw_num_instances: 1
 # Rados Gateway options
 email_address: foo@bar.com
-
 
 ## Testing mode
 # enable this mode _only_ when you have a single node
@@ -474,7 +463,6 @@ health_mon_check_delay: 10
 health_osd_check_retries: 20
 health_osd_check_delay: 10
 
-
 ###############
 # NFS-GANESHA #
 ###############
@@ -486,7 +474,6 @@ health_osd_check_delay: 10
 nfs_file_gw: false
 # Set this to true to enable Object access via NFS. Requires an RGW role.
 nfs_obj_gw: "{{ False if groups.get(mon_group_name, []) | length == 0 else True }}"
-
 
 #############
 # MULTISITE #
@@ -549,7 +536,6 @@ rgw_zone: default
 #
 ceph_conf_overrides: {}
 
-
 #############
 # OS TUNING #
 #############
@@ -565,7 +551,6 @@ os_tuning_params:
 # Set this to a byte value (e.g. 134217728)
 # A value of 0 will leave the package default.
 ceph_tcmalloc_max_total_thread_cache: 0
-
 
 ##########
 # DOCKER #
@@ -586,7 +571,6 @@ containerized_deployment: False
 container_binary:
 timeout_command: "{{ 'timeout --foreground -s KILL ' ~ docker_pull_timeout if (docker_pull_timeout != '0') and (ceph_docker_dev_image is undefined or not ceph_docker_dev_image) else '' }}"
 
-
 # this is only here for usage with the rolling_update.yml playbook
 # do not ever change this here
 rolling_update: false
@@ -596,7 +580,6 @@ rolling_update: false
 #####################
 docker_pull_retry: 3
 docker_pull_timeout: "300s"
-
 
 #############
 # OPENSTACK #
@@ -711,18 +694,56 @@ openstack_pools:
   - "{{ openstack_cephfs_data_pool }}"
   - "{{ openstack_cephfs_metadata_pool }}"
 
-
 # The value for 'key' can be a pre-generated key,
 # e.g key: "AQDC2UxZH4yeLhAAgTaZb+4wDUlYOsr1OfZSpQ=="
 # By default, keys will be auto-generated.
 #
 openstack_keys:
-  - { name: client.glance, caps: { mon: "profile rbd", osd: "profile rbd pool=volumes, profile rbd pool={{ openstack_glance_pool.name }}"}, mode: "0600" }
-  - { name: client.cinder, caps: { mon: "profile rbd", osd: "profile rbd pool={{ openstack_cinder_pool.name }}, profile rbd pool={{ openstack_nova_pool.name }}, profile rbd pool={{ openstack_glance_pool.name }}"}, mode: "0600" }
-  - { name: client.cinder-backup, caps: { mon: "profile rbd", osd: "profile rbd pool={{ openstack_cinder_backup_pool.name }}"}, mode: "0600" }
-  - { name: client.gnocchi, caps: { mon: "profile rbd", osd: "profile rbd pool={{ openstack_gnocchi_pool.name }}"}, mode: "0600", }
-  - { name: client.openstack, caps: { mon: "profile rbd", osd: "profile rbd pool={{ openstack_glance_pool.name }}, profile rbd pool={{ openstack_nova_pool.name }}, profile rbd pool={{ openstack_cinder_pool.name }}, profile rbd pool={{ openstack_cinder_backup_pool.name }}"}, mode: "0600" }
-
+  - {
+      name: client.glance,
+      caps:
+        {
+          mon: "profile rbd",
+          osd: "profile rbd pool=volumes, profile rbd pool={{ openstack_glance_pool.name }}",
+        },
+      mode: "0600",
+    }
+  - {
+      name: client.cinder,
+      caps:
+        {
+          mon: "profile rbd",
+          osd: "profile rbd pool={{ openstack_cinder_pool.name }}, profile rbd pool={{ openstack_nova_pool.name }}, profile rbd pool={{ openstack_glance_pool.name }}",
+        },
+      mode: "0600",
+    }
+  - {
+      name: client.cinder-backup,
+      caps:
+        {
+          mon: "profile rbd",
+          osd: "profile rbd pool={{ openstack_cinder_backup_pool.name }}",
+        },
+      mode: "0600",
+    }
+  - {
+      name: client.gnocchi,
+      caps:
+        {
+          mon: "profile rbd",
+          osd: "profile rbd pool={{ openstack_gnocchi_pool.name }}",
+        },
+      mode: "0600",
+    }
+  - {
+      name: client.openstack,
+      caps:
+        {
+          mon: "profile rbd",
+          osd: "profile rbd pool={{ openstack_glance_pool.name }}, profile rbd pool={{ openstack_nova_pool.name }}, profile rbd pool={{ openstack_cinder_pool.name }}, profile rbd pool={{ openstack_cinder_backup_pool.name }}",
+        },
+      mode: "0600",
+    }
 
 #############
 # DASHBOARD #
@@ -737,21 +758,21 @@ dashboard_admin_user_ro: false
 # This variable must be set with a strong custom password when dashboard_enabled is True
 #dashboard_admin_password: p@ssw0rd
 # We only need this for SSL (https) connections
-dashboard_crt: ''
-dashboard_key: ''
+dashboard_crt: ""
+dashboard_key: ""
 dashboard_grafana_api_no_ssl_verify: False
 dashboard_rgw_api_user_id: ceph-dashboard
-dashboard_rgw_api_admin_resource: ''
+dashboard_rgw_api_admin_resource: ""
 dashboard_rgw_api_no_ssl_verify: False
-dashboard_frontend_vip: ''
+dashboard_frontend_vip: ""
 node_exporter_container_image: "prom/node-exporter:v0.17.0"
 node_exporter_port: 9100
 grafana_admin_user: admin
 # This variable must be set with a strong custom password when dashboard_enabled is True
 #grafana_admin_password: admin
 # We only need this for SSL (https) connections
-grafana_crt: ''
-grafana_key: ''
+grafana_crt: ""
+grafana_key: ""
 grafana_container_image: "grafana/grafana:5.4.3"
 grafana_container_cpu_period: 100000
 grafana_container_cpu_cores: 2
@@ -785,7 +806,7 @@ prometheus_container_cpu_cores: 2
 prometheus_container_memory: 4
 prometheus_data_dir: /var/lib/prometheus
 prometheus_conf_dir: /etc/prometheus
-prometheus_user_id: '65534'  # This is the UID used by the prom/prometheus container image
+prometheus_user_id: "65534" # This is the UID used by the prom/prometheus container image
 prometheus_port: 9092
 alertmanager_container_image: "prom/alertmanager:v0.16.2"
 alertmanager_container_cpu_period: 100000
@@ -796,7 +817,6 @@ alertmanager_data_dir: /var/lib/alertmanager
 alertmanager_conf_dir: /etc/alertmanager
 alertmanager_port: 9093
 alertmanager_cluster_port: 9094
-
 
 ##################################
 # DEPRECIATED iSCSI TARGET SETUP #
@@ -856,14 +876,11 @@ rbd_devices: {}
 
 client_connections: {}
 
-
-
 ###############
 # DEPRECATION #
 ###############
 
 use_fqdn_yes_i_am_sure: false
-
 
 ######################################################
 # VARIABLES BELOW SHOULD NOT BE MODIFIED BY THE USER #
