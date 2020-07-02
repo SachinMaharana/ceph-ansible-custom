@@ -57,3 +57,11 @@ kubectl create -f ceph-csi/9-raw-block-pod.yaml
 kubectl create -f ceph-csi/10-pvc.yaml
 
 kubectl create -f ceph-csi/11-pod.yaml
+
+kubectl create -f ceph-csi/12-ss.yaml
+
+kubectl create -f ceph-csi/13a-service-cass.yaml
+
+kubectl create -f ceph-csi/13b-ss-cass.yaml
+
+kubectl exec -it cassandra-0 -- nodetool status
