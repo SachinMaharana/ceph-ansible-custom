@@ -1,0 +1,18 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: csi-rbd-sc
+provisioner: rbd.csi.ceph.com
+parameters:
+  clusterID: 01822d84-431a-4e0c-947a-c0cfd6719809
+  pool: logs
+  imageFeatures: layering
+  csi.storage.k8s.io/provisioner-secret-name: csi-rbd-secret
+  csi.storage.k8s.io/provisioner-secret-namespace: csi
+  csi.storage.k8s.io/node-stage-secret-name: csi-rbd-secret
+  csi.storage.k8s.io/node-stage-secret-namespace: csi
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+mountOptions:
+  - discard
