@@ -30,7 +30,7 @@ ceph auth get-or-create client.logsuser
 
 # kuberentes setup(assuming namespace csi)
 
-kubectl apply -f ceph-csi/ceph-csi-config.yaml
+kubectl apply -f ceph-csi/csi-config-map.yaml
 
 kubectl apply -f ceph-csi/csi-rbd-secret.yam
 
