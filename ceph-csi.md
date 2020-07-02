@@ -20,12 +20,6 @@ or
 
 `ceph --cluster ceph auth get-or-create client.logsuser mon 'allow r' osd 'allow rwx pool=logs'`
 
-```
-ceph auth list
-
-ceph auth get-or-create client.logsuser
-```
-
 ## get details for config and secret from following command
 
 ```
