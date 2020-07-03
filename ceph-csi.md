@@ -6,26 +6,26 @@ ceph-csi, which dynamically provisions RBD images to back Kubernetes volumes and
 
 `sudo ceph -s`
 
-`sudo ceph osd pool create logs 64 64`
+`sudo ceph osd pool create kube 64 64`
 
-`sudo ceph osd pool get logs all`
+`sudo ceph osd pool get kube all`
 
-`sudo rbd pool init logs`
+`sudo rbd pool init kube`
 
-## create a logsuser for pool named logs
+## create a kubeuser for pool named kube
 
-`ceph auth get-or-create client.logsuser mon 'profile rbd' osd 'profile rbd pool=logs' mgr 'profile rbd pool=logs'`
+`ceph auth get-or-create client.kubeuser mon 'profile rbd' osd 'profile rbd pool=kube' mgr 'profile rbd pool=kube'`
 
 or
 
-`ceph --cluster ceph auth get-or-create client.logsuser mon 'allow r' osd 'allow rwx pool=logs'`
+`ceph --cluster ceph auth get-or-create client.kubeuser mon 'allow r' osd 'allow rwx pool=kube'`
 
 ## get details for config and secret from following command
 
 ```
 ceph mon dump
 ceph auth list
-ceph auth get-or-create client.logsuser
+ceph auth get-or-create client.kubeuser
 ```
 
 # kuberentes setup(assuming namespace csi)
