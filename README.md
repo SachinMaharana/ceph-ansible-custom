@@ -48,7 +48,7 @@ sudo ceph -s
 
 To add a client node, add a client host group in hosts file. And execute the following to start client playbook(optional. already added in terraform file.)
 
-`ansible-playbook site.yml -i hosts --limit clients`
+`ansible-playbook site.yml -i ceph-ansible/inventory --limit clients`
 
 ### Login to Client Node
 
@@ -92,7 +92,7 @@ tmpfs tmpfs 379M 0 379M 0% /run/user/1000
 
 To add a mds, add a mds host group in hosts file. And execute the following to start mds playbook
 
-`ansible-playbook site.yml -i hosts --limit mdss`
+`ansible-playbook site.yml -i ceph-ansible/inventory --limit mdss`
 
 ### Login to MDS Node.
 
