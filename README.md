@@ -1,12 +1,3 @@
-# ceph-ansible
-
-Ansible playbooks for Ceph, the distributed filesystem.
-
-Please refer to our hosted documentation here: http://docs.ceph.com/ceph-ansible/master/
-
-You can view documentation for our `stable-*` branches by substituting `master` in the link
-above for the name of the branch. For example: http://docs.ceph.com/ceph-ansible/stable-3.0/
-
 # Documentation
 
 Please refer the following repo to create VM's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
