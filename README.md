@@ -1,6 +1,8 @@
 # Documentation
 
-Please refer the following repo to create vm's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
+Please refer the following repo to create vm's for ceph-cluster creation in AWS. An inventroy is automatically created.
+
+Note: As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
 
 [Create ceph cluster in aws](https://github.com/SachinMaharana/ceph-cluster-vms)
 
@@ -8,7 +10,7 @@ The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for
 
 [Ceph Notes](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/Notes.md)
 
-[kubernetes-Ceph Integration](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/ceph-csi.md)
+[Kubernetes-Ceph Integration](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/ceph-csi.md)
 
 ## Refer following files for changes made.
 
@@ -27,7 +29,7 @@ rgws.custom.yml
 ## Install Ceph
 
 ```
-ansible-playbook site.yml -i hosts
+ansible-playbook site.yml -i ceph-ansible/inventory
 ```
 
 ## SSH in one of the mons and get ceph cluster details
@@ -37,7 +39,7 @@ ssh centos@ec2-3-15-185-202.us-east-2.compute.amazonaws.com
 
 sudo su -
 
-ceph -s
+sudo ceph -s
 ```
 
 ## Find the public IP of active mgrs from `ceph -s` and go to IP:8443 to access ceph dashboard.
