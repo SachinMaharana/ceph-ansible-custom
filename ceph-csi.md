@@ -22,6 +22,9 @@ or
 
 ## get details for config and secret from following command
 
+ceph-csi/0-csi-config-map.yaml, ceph-csi/1-csi-rbd-secret.yaml,
+ceph-csi/7-storageclass.yaml needs to be updated
+
 ```
 ceph mon dump
 ceph auth list

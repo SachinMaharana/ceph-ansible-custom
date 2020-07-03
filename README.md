@@ -161,5 +161,4 @@ df -hT
 
 ```
 ansible-playbook -vv -i ceph-ansible/inventory infrastructure-playbooks/purge-cluster.yml
-
 ```
