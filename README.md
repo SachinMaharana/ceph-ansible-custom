@@ -160,8 +160,6 @@ df -hT
 ## Remove Ceph
 
 ```
-ansible-playbook -vv -i hosts infrastructure-playbooks/purge-cluster.yml
+ansible-playbook -vv -i ceph-ansible/inventory infrastructure-playbooks/purge-cluster.yml
 
 ```
-
-Additional Notes is Notes.md
