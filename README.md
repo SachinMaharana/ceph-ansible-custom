@@ -1,10 +1,14 @@
 # Documentation
 
-Please refer the following repo to create VM's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
+Please refer the following repo to create vm's for ceph-cluster creation in AWS. As this is for testing and learning creation of ceph cluster, this setup shouldn't be used for prodcution purpose.
 
-https://github.com/SachinMaharana/ceph-cluster-vms
+[Create ceph cluster in aws](https://github.com/SachinMaharana/ceph-cluster-vms)
 
 The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for client. A gp2 disk of size 30GB volume is attacthed to osds.
+
+[Ceph Notes](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/Notes.md)
+
+[kubernetes-Ceph Integration](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/ceph-csi.md)
 
 ## Refer following files for changes made.
 
@@ -159,5 +163,3 @@ ansible-playbook -vv -i hosts infrastructure-playbooks/purge-cluster.yml
 ```
 
 Additional Notes is Notes.md
-
-https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/Notes.md
