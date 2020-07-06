@@ -13,7 +13,7 @@ spec:
       labels:
         app: csi-rbdplugin
     spec:
-      serviceAccount: rbd-csi-nodeplugin
+      serviceAccount: rbd-csi-nodeplugin-nautilus-sa
       hostNetwork: true
       hostPID: true
       # to use e.g. Rook orchestrated cluster, and mons' FQDN is

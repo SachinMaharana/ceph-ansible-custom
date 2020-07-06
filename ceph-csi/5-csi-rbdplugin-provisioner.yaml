@@ -31,7 +31,7 @@ spec:
       labels:
         app: csi-rbdplugin-provisioner
     spec:
-      serviceAccount: rbd-csi-provisioner
+      serviceAccount: rbd-csi-provisioner-nautilus-sa
       containers:
         - name: csi-provisioner
           image: quay.io/k8scsi/csi-provisioner:v1.6.0
