@@ -30,7 +30,7 @@ EOF
 
 ## Apply PVC and Pod.
 
-```
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -46,7 +46,7 @@ spec:
 EOF
 ```
 
-```
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -71,19 +71,19 @@ EOF
 
 <p>Change storage size in spec.resources.requests.storage using below command</p>
 
-```
+```yaml
 kubectl edit pvc rbd-pvc
 ```
 
 <p>Use the following command to see events for debugging</p>
 
-```
+```yaml
 kubectl describe pvc rbd-pvc
 ```
 
 <p>Volume is Updated Now</p>
 
-```
+```yaml
 kubectl get pvc
 
 kubectl get pv | grep {pvc-volume}
