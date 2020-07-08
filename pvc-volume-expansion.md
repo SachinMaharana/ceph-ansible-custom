@@ -4,7 +4,7 @@
 
 <p>Deploy the following storageclass. Make sure to change required values.</p>
 
-```
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
