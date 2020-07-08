@@ -12,6 +12,8 @@ The above terraform creates a total of 7 VM's , 3 for mons, 3 for osds and 1 for
 
 [Kubernetes-Ceph Integration](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/ceph-csi.md)
 
+[Volume Resizing](https://github.com/SachinMaharana/ceph-ansible-custom/blob/master/pvc-volume-expansion.md)
+
 ## Refer following files for changes made.
 
 ```
